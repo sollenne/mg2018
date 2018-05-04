@@ -1,0 +1,41 @@
+<div class="nav-row">
+  <a href="">Contact us</a>
+  <a href="">FAQ</a>
+  <button mat-button [matMenuTriggerFor]="languageMenu" class="language-menu-button" [disableRipple]="true">
+    <img [src]="'http://via.placeholder.com/30x20'" alt="flag">
+    <span class="chevron-wrap"><span class="chevron-down"></span></span>
+  </button>
+</div>
+<div class="functional-button-row">
+  <button mat-button class="signup-button">Sign Up</button>
+  <button mat-button class="login-button">Log In</button>
+</div>
+
+<!-- language selector main dropdown -->
+<mat-menu #languageMenu="matMenu" class="language-menu">
+
+  <ng-container>
+    <mat-form-field (click)="$event.stopPropagation()" class="language-menu-selector">
+      <mat-select [placeholder]="'Country or Territory'" [(value)]="selectedCountry" disableRipple="true">
+        <mat-option *ngFor="let country of countries" [value]="country.value" class="locale-option">
+          {{ country.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field (click)="$event.stopPropagation()" class="language-menu-selector">
+      <mat-select [placeholder]="'Language'" [(value)]="selectedLanguage" disableRipple="true">
+        <mat-option *ngFor="let language of languages" [value]="language.value" class="locale-option">
+          {{ language.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </ng-container>
+
+  <small>By making this selection, you will be redirected to the homepage of the chosen country.</small>
+
+  <button mat-button (click)="changeLocale()" class="language-selector-button">
+    Go
+    <span class="chevron-wrap"><span class="chevron-down"></span></span>
+  </button>
+</mat-menu>

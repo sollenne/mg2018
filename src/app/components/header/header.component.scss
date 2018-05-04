@@ -1,0 +1,24 @@
+@import '../../../assets/helpers';
+
+.site-header {
+  @include font-reset(15px);
+  width: 100%;
+
+  &-main {
+    @include dimensions(95px, 100%);
+    background: $white;
+    border-bottom: solid 3px $red;
+
+    &-logo {
+      float: left;
+      max-width: 200px;
+      position: relative;
+      top: 22px;
+    }
+
+    &-functional-menu {
+      float: right;
+      margin-top: 11px;
+    }
+  }
+}

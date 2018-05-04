@@ -1,0 +1,89 @@
+@import '../../../assets/helpers';
+
+.site-header-menu {
+  @include font-reset(15px);
+  @include theme($white, $brown1);
+  @include dimensions(55px, 100%);
+
+  &-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+
+    &-item {
+      display: inline-block;
+      padding: 0 25px;
+      height: 55px;
+      line-height: 55px;
+
+      &:hover {
+        @include theme($white, $brown2);
+        cursor: pointer;
+
+        a {
+          @include theme($white, $brown2);
+          text-decoration: none;
+        }
+      }
+
+      button {
+        @include border-radius(0px);
+        @include font-reset(15px);
+        padding: 0;
+
+        .chevron-wrap {
+          display: inline-block;
+          width: 18px;
+
+          .chevron-down {
+            @include transform-rotate(45deg);
+            @include border-radius(3px);
+            @include dimensions(8px, 8px);
+            position: absolute;
+            top: 10px;
+            right: 0px;
+            border-right: 4px solid $white;
+            border-bottom: 4px solid $white;
+            margin: 0 0 0 -3px;
+          }
+        }
+
+        &:hover {
+          ::ng-deep .mat-button-focus-overlay {
+            opacity: 0 !important;
+          }
+        }
+      }
+
+      a {
+        @include theme($white, $brown1);
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+// This is to target material-created DOM elements
+::ng-deep {
+
+  .site-header-learn-more-menu {
+    @include theme($white, $brown1);
+    @include border-radius(0px !important);
+    top: 44px;
+    position: relative;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+
+    button {
+      @include border-radius(0px);
+      @include font-reset(14px);
+      @include theme($white, $brown1);
+
+      &:hover {
+        &:not([disabled]) {
+          @include theme($white, $brown2);
+        }
+      }
+    }
+  }
+}

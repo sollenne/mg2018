@@ -1,0 +1,23 @@
+@import '../assets/helpers';
+
+::ng-deep {
+
+  body {
+    @include font-reset(16px);
+    @include theme($text-light, $white);
+    padding: 0;
+    margin: 0;
+  }
+
+  .mat-drawer-container {
+    @include font-reset(16px);
+    @include theme($text-light, $white);
+  }
+
+  .site-header-container {
+    @include center-block;
+    width: 98%;
+    max-width: 1170px;
+  }
+
+}
