@@ -7,6 +7,10 @@
     @include theme($text-light, $white);
     padding: 0;
     margin: 0;
+
+    &.walmart {
+      @include font-reset-wm(16px);
+    }
   }
 
   .mat-drawer-container {
@@ -14,7 +18,7 @@
     @include theme($text-light, $white);
   }
 
-  .site-header-container {
+  .site-container {
     @include center-block;
     width: 98%;
     max-width: 1170px;

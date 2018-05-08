@@ -1,64 +1,80 @@
 @import '../../../assets/helpers';
 
-a {
-  @include font-reset(14px);
-  @include theme($text-lighter, $white);
-  text-decoration: none;
-  padding: 0 15px;
-  border-right: 1px solid $text-lighter;
-}
-.functional-button-row {
-  margin-top: 4px;
+.functional-nav-menu {
+   a {
+    @include font-reset(14px);
+    @include theme($text-lighter, transparent);
+    text-decoration: none;
+    padding: 0 15px;
+    border-right: 1px solid $text-lighter;
+  }
+
+  .functional-button-row {
+    margin-top: 4px;
+
+    button {
+      @include border-radius(30px);
+      @include font-reset(14px);
+      line-height: 28px;
+      float: right;
+      margin-left: 15px;
+      padding: 0 14px;
+      overflow: hidden;
+
+      &.signup-button {
+        @include theme($white, $text-light);
+      }
+
+      &.login-button {
+        @include theme($white, $green);
+
+        .login-button-icon {
+          display: inline-block;
+          width: 11px;
+
+          .login-button-icon-lock {
+            @include dimensions(9px, 9px);
+            position: absolute;
+            top: 0px;
+            left: 15px;
+          }
+        }
+      }
+    }
+  }
 
   button {
-    @include border-radius(30px);
-    @include font-reset(14px);
-    line-height: 28px;
-    float: right;
-    margin-left: 15px;
-    padding: 0 14px;
-    overflow: hidden;
+    min-width: auto;
 
-    &.signup-button {
-      @include theme($white, $text-light);
-    }
+    &.language-menu-button {
+      padding-right: 0;
 
-    &.login-button {
-      @include theme($white, $green);
-    }
-  }
-}
-
-button {
-  min-width: auto;
-
-  &.language-menu-button {
-    padding-right: 0;
-
-    &:hover {
-      ::ng-deep .mat-button-focus-overlay {
-        opacity: 0 !important;
+      &:hover {
+        ::ng-deep .mat-button-focus-overlay {
+          opacity: 0 !important;
+        }
       }
-    }
 
-    .chevron-wrap {
-      display: inline-block;
-      width: 18px;
+      .chevron-wrap {
+        display: inline-block;
+        width: 18px;
 
-      .chevron-down {
-        @include transform-rotate(45deg);
-        @include border-radius(3px);
-        @include dimensions(8px, 8px);
-        position: absolute;
-        top: 10px;
-        right: 1px;
-        border-right: 4px solid $text-lighter;
-        border-bottom: 4px solid $text-lighter;
-        margin: 0 0 0 -3px;
+        .chevron-down {
+          @include transform-rotate(45deg);
+          @include border-radius(3px);
+          @include dimensions(8px, 8px);
+          position: absolute;
+          top: 10px;
+          right: 1px;
+          border-right: 4px solid $text-lighter;
+          border-bottom: 4px solid $text-lighter;
+          margin: 0 0 0 -3px;
+        }
       }
     }
   }
 }
+
 
 // This is to target material-created DOM elements
 ::ng-deep {
@@ -111,6 +127,7 @@ button {
     @include theme($white, $blue);
     @include border-radius(30px !important);
     width: 100%;
+    overflow: hidden;
 
     .chevron-wrap {
       display: inline-block;
@@ -131,5 +148,24 @@ button {
 
   option.locale-option.mat-selected {
     color: $blue-light;
+  }
+}
+
+// overrides for Walmart theme
+::ng-deep {
+  body.walmart  {
+    .functional-nav-menu {
+      .nav-row a {
+        @include theme($wm-blue1, transparent);
+      }
+
+      .functional-button-row button.login-button {
+        background-color: $wm-green !important;
+      }
+    }
+
+    button.language-selector-button {
+      @include theme($white, $wm-green);
+    }
   }
 }

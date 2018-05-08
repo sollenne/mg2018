@@ -2,6 +2,7 @@
 $text-dark:    #333333    !default;
 $text-light:   #7E7874    !default;
 $text-lighter: #9E9A97    !default;
+$border:       #DFDDDC    !default;
 $white:        #FFFFFF    !default;
 $blue:         #009CDE    !default;
 $blue-light:   #66AFE9    !default;
@@ -15,9 +16,34 @@ $input-border:        rgba(158, 158, 158, 0.5)  !default;
 $input-shadow-inset:  rgba(0, 0, 0, 0.075)      !default;
 $input-shadow-outset: rgba(102,175,233,0.6)     !default;
 
+$wm-blue1: #007DC6 !default;
+$wm-blue2: #0070B2 !default;
+$wm-blue3: #005185 !default;
+$wm-gray1: #444444 !default;
+$wm-green: #76C143 !default;
+
 // Font Vars
 $font-roboto: "Roboto", Helvetica,Arial, sans-serif !default;
+$font-myriad: "myriad-pro", Calibri,sans-serif !default;
 $font-weight-default: 300 !default;
+$font-weight-default-wm: 400 !default;
+
+// Breakpoints
+@mixin bp($point) {
+  $bp-sm: "(max-width: 600px)";
+  $bp-md: "(max-width: 768px)";
+  $bp-lg: "(max-width: 992px)";
+
+  @if $point == lg {
+    @media #{$bp-lg} { @content; }
+  }
+  @else if $point == md {
+    @media #{$bp-md} { @content; }
+  }
+  @else if $point == sm {
+    @media #{$bp-sm}  { @content; }
+  }
+}
 
 // SCSS Mixins
 @mixin border-radius($radius) {
@@ -30,6 +56,12 @@ $font-weight-default: 300 !default;
 @mixin font-reset($font-size) {
   font-family: $font-roboto;
   font-weight: $font-weight-default;
+  font-size: $font-size;
+}
+
+@mixin font-reset-wm($font-size) {
+  font-family: $font-myriad;
+  font-weight: $font-weight-default-wm;
   font-size: $font-size;
 }
 
@@ -59,4 +91,10 @@ $font-weight-default: 300 !default;
 
 @mixin input-shadow {
   box-shadow: inset 0 1px 1px $input-shadow-inset, 0 0 8px $input-shadow-outset;
+}
+
+@mixin ul-reset {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }

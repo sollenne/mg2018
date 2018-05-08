@@ -21,4 +21,71 @@
       margin-top: 11px;
     }
   }
+
+  @include bp(md) {
+    .site-header-main {
+      @include dimensions(47px, 100%);
+      @include theme($text-lighter, $white);
+      border-bottom: 1px $border solid;
+      position: fixed;
+      z-index: 9;
+
+      &-logo {
+        @include center-block;
+        float: none;
+        max-width: 122px;
+        top: 9px;
+
+        &.walmart-logo {
+          display: none;
+        }
+      }
+
+      &-functional-menu {
+        display: none;
+      }
+    }
+  }
+}
+
+// overrides for Walmart theme
+::ng-deep {
+  body.walmart .site-header .site-header-main {
+    border-bottom-color: $wm-blue2 !important;
+
+    .site-header-main-logo {
+
+      &.walmart-logo {
+        background: url("../../../assets/walmart_logo.png") right center no-repeat;
+        background-size: contain;
+        min-width: 160px;
+        height: 40px;
+      }
+
+      &.moneygram-logo {
+        border-left: 1px solid $input-border;
+        padding-left: 20px;
+        margin-left: 15px;
+        max-width: 180px;
+
+      }
+    }
+
+    @include bp(md) {
+      @include theme($white !important, $wm-blue1 !important);
+
+      .site-header-main-logo {
+
+        &.walmart-logo {
+          display: block !important;
+          background: url("../../../assets/walmart-logo-mobile.svg") center center no-repeat;
+          background-size: contain;
+          height: 27px;
+        }
+
+        &.moneygram-logo {
+          display: none;}
+      }
+    }
+  }
 }

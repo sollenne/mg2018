@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {VariantService} from '../../services/variant.service';
 
 @Component({
   selector: 'app-functional-menu',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./functional-menu.component.scss']
 })
 export class FunctionalMenuComponent implements OnInit {
+  public variant: string;
 
   // TODO: set defaults via configs
   selectedCountry = 'USA';
@@ -25,7 +27,9 @@ export class FunctionalMenuComponent implements OnInit {
     {value: '2', viewValue: 'Spanish'}
   ];
 
-  constructor() { }
+  constructor() {
+    this.variant = VariantService.CURRENT_VARIANT;
+  }
 
   ngOnInit() {}
 

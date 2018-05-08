@@ -1,3 +1,51 @@
-<p>
-  footer works!
-</p>
+<div class="site-footer">
+  <div class="site-container">
+
+    <!-- main links section -->
+    <div class="site-footer-links-section">
+      <div *ngFor="let section of footerLinksSections" class="site-footer-link-column">
+        <h6 class="site-footer-heading">{{section.sectionTitle}}</h6>
+        <ul>
+          <li *ngFor="let link of section.links">
+            <a routerLink="{{link.path}}">{{link.viewValue}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- country link section -->
+    <div class="site-footer-countries-section">
+      <h6 class="site-footer-heading">Send money to:</h6>
+      <ul class="site-footer-horizontal-list">
+        <li *ngFor="let link of countryLinks">
+          <a routerLink="{{link.path}}">{{link.name}}</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- legal section -->
+    <div class="site-footer-legal-section">
+      <div class="site-footer-legal-links">
+        <ul class="site-footer-horizontal-list">
+          <li *ngFor="let link of legalLinks">
+            <a routerLink="{{link.path}}">{{link.viewValue}}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="site-footer-social-media-links">
+        <ul class="site-footer-social-media-list">
+          <li *ngFor="let link of socialMediaLinks">
+            <a routerLink="{{link.path}}">{{link.iconName}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- copyright section -->
+    <div class="site-footer-copyright-section">
+      <small>© 2018 MoneyGram</small>
+      <small>Licensed as a Money Transmitter by the New York State Department of Financial Services. Massachusetts Check Seller License # CS0025, Foreign Transmittal License # FT89432, NMLS # 898432. Licensed by the Georgia Department of Banking and Finance; NMLS #898432</small>
+    </div>
+
+  </div>
+</div>

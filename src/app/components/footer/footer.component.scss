@@ -1,1 +1,99 @@
 @import '../../../assets/helpers';
+
+.site-footer {
+  @include theme($white, $brown1);
+  border-top: 3px solid $red;
+  padding: 45px 0;
+
+  &-links-section {
+
+    .site-footer-link-column {
+      width: 20%;
+      display: inline-block;
+      vertical-align: top;
+      padding-bottom: 25px;
+
+      ul {
+        line-height: 22px;
+      }
+    }
+  }
+
+  &-countries-section {
+    padding: 18px 0;
+    border-top: 1px solid $text-lighter;
+    border-bottom: 1px solid $text-lighter;
+  }
+
+  &-legal-section {
+    padding: 30px 0;
+
+    .site-footer-legal-links {
+      float: left;
+    }
+
+    .site-footer-social-media-links {
+      float: right;
+
+      li {
+        display: inline-block;
+        margin-left: 15px;
+        height: 20px;
+        width: 20px;
+        overflow: hidden;
+        background: aliceblue;
+      }
+    }
+  }
+
+  &-copyright-section {
+    padding: 25px 0 15px 0;
+    line-height: 14px;
+
+    small {
+      @include font-reset(11px);
+      color: $text-lighter;
+    }
+  }
+
+  // common
+  &-heading {
+    @include font-reset(16px);
+    color: $text-lighter;
+    margin: 0 0 10px 0px;
+    height: 20px;
+  }
+
+  ul {
+    @include ul-reset;
+
+    &.site-footer-horizontal-list > li {
+      display: inline-block;
+      padding-left: 10px;
+      margin-left: 10px;
+      border-left: 1px solid $text-lighter;
+      height: 12px;
+      line-height: 10px;
+
+      &:first-child {
+        padding-left: 0;
+        margin-left: 0;
+        border-left-width: 0;
+      }
+    }
+
+    a {
+      @include font-reset(12px);
+      text-decoration: none;
+      color: $white;
+    }
+  }
+}
+
+// overrides for Walmart theme
+::ng-deep {
+  body.walmart .site-footer {
+    @include theme($white, $wm-gray1);
+    border-top-color: $wm-blue2;
+  }
+}

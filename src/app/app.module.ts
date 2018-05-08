@@ -12,7 +12,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { HeaderNavMenuComponent } from './components/header-nav-menu/header-nav-menu.component';
 import { FunctionalMenuComponent } from './components/functional-menu/functional-menu.component';
-
+import { AppRoutingModule } from './/app-routing.module';
+import { TestComponent } from './test/test.component';
+import { VariantService } from './services/variant.service';
 
 @NgModule({
   declarations: [
@@ -22,17 +24,23 @@ import { FunctionalMenuComponent } from './components/functional-menu/functional
     SidenavComponent,
     HeaderNavMenuComponent,
     FunctionalMenuComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,
     MaterialModule,
+    AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    VariantService,
+  ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
     NO_ERRORS_SCHEMA,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent,
+  ],
 })
 
 export class AppModule { }

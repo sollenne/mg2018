@@ -2,8 +2,9 @@
 
   <!-- main -->
   <div class="site-header-main">
-    <div class="site-header-container">
-      <img class="site-header-main-logo" [src]="'../assets/logo.png'"/>
+    <div class="site-container">
+      <span *ngIf="variant === 'walmart'" class="site-header-main-logo walmart-logo"></span>
+      <img class="site-header-main-logo moneygram-logo" [src]="'../assets/moneygram_logo.png'"/>
       <div class="site-header-main-functional-menu">
         <app-functional-menu></app-functional-menu>
       </div>
@@ -11,7 +12,7 @@
   </div>
 
   <!-- menu -->
-  <app-header-nav-menu></app-header-nav-menu>
+  <app-header-nav-menu *ngIf="variant != 'cpp'"></app-header-nav-menu>
 
 </div>
 

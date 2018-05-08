@@ -32,6 +32,10 @@ export class HeaderNavMenuComponent implements OnInit {
         name: 'Find a Location',
         path: 'locations',
       },
+      {
+        name: 'FAQ',
+        path: 'faq',
+      },
     ];
 
     this.learnMoreLinks = [
