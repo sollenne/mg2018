@@ -172,3 +172,36 @@
     }
   }
 }
+
+// overrides for CPP theme
+::ng-deep {
+  body.cpp .site-header .site-header-main {
+    border-bottom-color: $border !important;
+    border-bottom-width: 2px;
+    height: 75px;
+
+    .site-header-main-logo {
+      max-width: 180px;
+      top: 15px;
+    }
+
+    .site-header-main-functional-menu {
+      .cpp-button {
+        @include theme($white, $brown1);
+        @include border-radius(30px);
+        @include font-reset(13px);
+        overflow: hidden;
+        padding: 0 30px;
+        top: 10px;
+      }
+    }
+
+    @include bp(md) {
+      .site-header-main-logo {
+        max-width: 122px;
+        top: 9px;
+      }
+
+    }
+  }
+}
