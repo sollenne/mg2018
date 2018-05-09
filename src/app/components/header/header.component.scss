@@ -4,10 +4,65 @@
   @include font-reset(15px);
   width: 100%;
 
+  &-mobile-spacer {
+    @include dimensions(47px, 100%);
+    @include theme(transparent, transparent);
+    display: none;
+  }
+
   &-main {
     @include dimensions(95px, 100%);
     background: $white;
     border-bottom: solid 3px $red;
+
+    &-mobile-nav {
+      @include full-cover;
+      display: none;
+
+      button {
+        @include font-reset(14px);
+        color: $blue-light;
+        font-weight: bold;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+
+        &.main-button {
+          left:0;
+        }
+
+        &.sidenav-button {
+          right:0;
+          padding: 0;
+          margin: 0;
+          min-width: 47px;
+          width: 47px;
+          border-left: 1px solid $border;
+
+          span {
+            @include border-radius(30px);
+            display: block;
+            position: absolute;
+            height: 3px;
+            width: 45%;
+            background: $text-dark;
+            left: 14px;
+
+            &:nth-child(1) {
+              top: 16px;
+            }
+
+            &:nth-child(2) {
+              top: 23px;
+            }
+
+            &:nth-child(3) {
+              top: 30px;
+            }
+          }
+        }
+      }
+    }
 
     &-logo {
       float: left;
@@ -23,12 +78,21 @@
   }
 
   @include bp(md) {
+
+    &-mobile-spacer {
+      display: block;
+    }
+
     .site-header-main {
       @include dimensions(47px, 100%);
       @include theme($text-lighter, $white);
       border-bottom: 1px $border solid;
       position: fixed;
       z-index: 9;
+
+      &-mobile-nav {
+        display: block;
+      }
 
       &-logo {
         @include center-block;
@@ -53,8 +117,27 @@
   body.walmart .site-header .site-header-main {
     border-bottom-color: $wm-blue2 !important;
 
-    .site-header-main-logo {
+    .site-header-main-mobile-nav {
+      button {
+        @include font-reset-wm(14px);
+        color: $white;
+        position: absolute;
+        top: 0;
+        bottom: 0;
 
+        &.main-button {}
+
+        &.sidenav-button {
+          border-left-color: $wm-blue3;
+
+          span {
+            background: $white;
+          }
+        }
+      }
+    }
+
+    .site-header-main-logo {
       &.walmart-logo {
         background: url("../../../assets/walmart_logo.png") right center no-repeat;
         background-size: contain;

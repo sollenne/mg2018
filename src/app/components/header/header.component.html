@@ -3,6 +3,16 @@
   <!-- main -->
   <div class="site-header-main">
     <div class="site-container">
+
+      <div class="site-header-main-mobile-nav">
+        <button mat-button (click)="mobileNavAction()" class="main-button">Log In</button>
+        <button mat-button (click)="toggleSidenav()" class="sidenav-button">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
       <span *ngIf="variant === 'walmart'" class="site-header-main-logo walmart-logo"></span>
       <img class="site-header-main-logo moneygram-logo" [src]="'../assets/moneygram_logo.png'"/>
       <div class="site-header-main-functional-menu">
@@ -14,5 +24,6 @@
   <!-- menu -->
   <app-header-nav-menu *ngIf="variant != 'cpp'"></app-header-nav-menu>
 
+  <div class="site-header-mobile-spacer"></div>
 </div>
 

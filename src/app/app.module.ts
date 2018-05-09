@@ -15,6 +15,7 @@ import { FunctionalMenuComponent } from './components/functional-menu/functional
 import { AppRoutingModule } from './/app-routing.module';
 import { TestComponent } from './test/test.component';
 import { VariantService } from './services/variant.service';
+import { SidenavService } from './services/sidenav.service';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { VariantService } from './services/variant.service';
   ],
   providers: [
     VariantService,
+    SidenavService,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
