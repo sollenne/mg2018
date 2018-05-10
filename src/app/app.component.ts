@@ -16,7 +16,7 @@ export class AppComponent implements AfterViewInit {
     private variantService: VariantService,
     private sidenavService: SidenavService,
   ) {
-    this.setAppVariant('walmart');
+    this.setAppVariant('cpp');
   }
 
   public setAppVariant(variant?: string): void {

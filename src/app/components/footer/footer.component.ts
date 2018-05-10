@@ -1,11 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { VariantService } from '../../services/variant.service';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss']
+  styleUrls: ['./footer.component.scss'],
+  providers: [
+    VariantService,
+  ]
 })
 export class FooterComponent implements OnInit {
+  public variant: string;
+  public showCountryLinksSection: boolean;
+  public showFooterLinks: boolean;
+  public showLicenseStatement: boolean;
+  public showLocale: boolean;
+  public showPoweredByMoneyGram: boolean;
+  public showSocialMediaLinks: boolean;
 
   footerLinksSections = [
     {
@@ -101,9 +112,21 @@ export class FooterComponent implements OnInit {
     {iconName: 'google-plus',   path: 'out/socialMedia/cia'},
   ];
 
-  constructor() {}
+  constructor() {
+    this.getVariantConfig();
+  }
 
   ngOnInit() {
+  }
+
+  public getVariantConfig() {
+    this.variant = VariantService.CURRENT_VARIANT;
+    this.showCountryLinksSection = VariantService.IS_BASE;
+    this.showFooterLinks = !VariantService.IS_CPP;
+    this.showLicenseStatement = !VariantService.IS_CPP;
+    this.showLocale = !VariantService.IS_CPP;
+    this.showPoweredByMoneyGram = VariantService.IS_WALMART;
+    this.showSocialMediaLinks = !VariantService.IS_CPP;
   }
 
 }

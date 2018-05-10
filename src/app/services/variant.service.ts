@@ -3,6 +3,7 @@ import {Injectable} from '@angular/core';
 @Injectable()
 
 export class VariantService {
+  public static IS_BASE: boolean;
   public static IS_CPP: boolean;
   public static IS_WALMART: boolean;
   public static IS_CA_POST: boolean;
@@ -27,15 +28,16 @@ export class VariantService {
           VariantService.IS_CA_POST = true;
           break;
         default:
-          this.discardVariants();
+          VariantService.IS_BASE = true;
       }
     }
   }
 
   public discardVariants(): void {
-    VariantService.IS_CPP = false;
+    VariantService.IS_CPP     = false;
     VariantService.IS_WALMART = false;
     VariantService.IS_CA_POST = false;
+    VariantService.IS_BASE    = false;
   }
 
 }

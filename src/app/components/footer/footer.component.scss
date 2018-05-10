@@ -6,6 +6,7 @@
   padding: 45px 0;
 
   &-links-section {
+    padding: 0 15px;
 
     .site-footer-link-column {
       width: 20%;
@@ -42,6 +43,21 @@
         width: 20px;
         overflow: hidden;
         background: aliceblue;
+      }
+
+      .site-footer-powered-by-mg {
+        @include dimensions(15px, auto);
+        @include font-reset-wm(14px);
+        background: url('../../../assets/mgSmallLogo.svg') left center no-repeat;
+        padding-left: 20px;
+        line-height: 15px;
+        margin-top: 32px;
+      }
+
+      .site-footer-locale {
+        @include font-reset(14px);
+        display: none;
+        padding-top: 15px;
       }
     }
   }
@@ -88,12 +104,118 @@
       color: $white;
     }
   }
+
+  @include bp(lg) {
+    .site-footer-legal-section {
+      .site-footer-legal-links {
+        float: none;
+        text-align: center;
+        padding-bottom: 35px;
+      }
+
+      .site-footer-social-media-links {
+        @include center-block;
+        float: none;
+        text-align: center;
+        margin: 0 auto;
+
+        .site-footer-powered-by-mg {
+          position: relative;
+          left: 10px;
+          display: inline-block;
+          margin-top: 12px;
+          @include font-reset-wm(13px);
+        }
+      }
+    }
+
+    .site-footer-copyright-section {
+      @include center-block;
+      text-align: center;
+
+    }
+  }
+
+  @include bp(md) {
+    .site-footer-links-section {
+      display: none;
+    }
+
+    .site-footer-countries-section {
+      display: none;
+    }
+
+    .site-footer-legal-section {
+      padding-top: 0;
+      position: relative;
+
+      .site-footer-legal-links {
+        padding-top: 20px;
+        padding-bottom: 15px;
+      }
+
+      .site-footer-locale {
+        display: block;
+      }
+
+      .site-footer-social-media-list {
+        position: absolute;
+        top: -20px;
+        right: 0;
+        left: 0;
+        display: block;
+      }
+    }
+
+    .site-footer-copyright-section {
+      padding-top: 0;
+      width: 90%;
+    }
+  }
 }
 
 // overrides for Walmart theme
 ::ng-deep {
   body.walmart .site-footer {
-    @include theme($white, $wm-gray1);
+    @include theme($wm-white, $wm-gray1);
     border-top-color: $wm-blue2;
+
+    ul li a {
+     color: $wm-white !important;
+    }
+
+    &-legal-section {
+      border-top: 1px solid $text-lighter;
+    }
+
+    &-copyright-section {
+      width: 70%;
+      display: inline-block;
+    }
+  }
+
+  @include bp(md) {
+    .site-footer-legal-section {
+      border-top-width: 0 !important;
+
+      .site-footer-social-media-list {
+        display: none;
+      }
+    }
+  }
+}
+
+// overrides for CPP theme
+::ng-deep {
+  body.cpp .site-footer {
+    padding-top: 15px;
+
+    .site-footer-legal-section {
+      padding: 10px 0;
+    }
+
+    .site-footer-copyright-section {
+      padding: 25px 0 100px 0;
+    }
   }
 }

@@ -22,6 +22,13 @@
     @include center-block;
     width: 98%;
     max-width: 1170px;
+
+    @include bp(md) {
+      margin-right: auto;
+      margin-left: auto;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
   }
 
 }
