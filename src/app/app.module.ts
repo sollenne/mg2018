@@ -16,6 +16,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { TestComponent } from './test/test.component';
 import { VariantService } from './services/variant.service';
 import { SidenavService } from './services/sidenav.service';
+import { LiveChatComponent } from './components/live-chat/live-chat.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { SidenavService } from './services/sidenav.service';
     HeaderNavMenuComponent,
     FunctionalMenuComponent,
     TestComponent,
+    LiveChatComponent,
   ],
   imports: [
     BrowserModule,

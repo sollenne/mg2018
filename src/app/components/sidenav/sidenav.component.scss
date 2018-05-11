@@ -1,1 +1,102 @@
 @import '../../../assets/helpers';
+
+.site-sidenav {
+  @include dimensions(100%, 100%);
+  @include theme($white, $brown1);
+
+  &-row {
+    position: relative;
+    width: 100%;
+    display: block;
+    min-height: 60px;
+  }
+
+  &-close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 60px;
+    width: 60px;
+    min-width: 60px;
+  }
+
+  .mat-list-item {
+    border-bottom: 1px solid $text-lighter;
+  }
+
+  .site-sidenav-row-bottom .mat-list-item {
+    border-bottom-width: 0;
+  }
+
+  a {
+    @include font-reset(14px);
+    @include theme($white, $brown1);
+    text-decoration: none;
+  }
+}
+
+::ng-deep {
+
+  .mat-sidenav-fixed, .mat-drawer.mat-drawer-push {
+    @include theme($white, $brown1);
+    width: 100%;
+  }
+
+  .mat-expansion-panel {
+    @include theme($white, $brown2);
+
+    &.mat-expansion-panel-spacing {
+      margin: 0;
+    }
+
+    &-header {
+      @include theme($text-lighter, $brown2);
+      border-bottom: 1px solid $text-lighter;
+
+      &:not(.mat-expanded) {
+        @include theme($text-lighter, $brown2 !important);
+
+        &:hover {
+          @include theme($white, $brown2);
+        }
+      }
+
+      &-title {
+        @include font-reset(14px);
+        color: $text-lighter;
+      }
+    }
+
+    .mat-expansion-indicator::after {
+      color: $text-lighter;
+    }
+
+    .mat-expansion-panel-body {
+      @include theme($white, $brown1);
+      padding: 0;
+
+      .mat-list {
+        padding-top: 0;
+      }
+    }
+  }
+}
+
+
+// overrides for walmart
+::ng-deep body.walmart {
+   .site-sidenav {
+     @include theme($wm-white, $wm-gray1);
+   }
+
+  .mat-sidenav-fixed, .mat-drawer.mat-drawer-push {
+    @include theme($wm-white, $wm-gray1);
+  }
+
+  .mat-expansion-panel {
+    .mat-expansion-panel-body {
+      @include theme($wm-white, $wm-gray1);
+
+    }
+  }
+}

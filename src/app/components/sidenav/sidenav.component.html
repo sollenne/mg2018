@@ -1,3 +1,57 @@
-<p>
-  sidenav works!
-</p>
+<div class="site-sidenav">
+
+  <div class="site-sidenav-row">
+    <button mat-button (click)="closeSidenav()" class="site-sidenav-close-button">close</button>
+  </div>
+
+  <div class="site-sidenav-row">
+    <mat-list>
+      <mat-list-item *ngFor="let link of sidenavLinks">
+        <a routerLink="{{link.path}}">{{link.name}}</a>
+      </mat-list-item>
+    </mat-list>
+  </div>
+
+  <div class="site-sidenav-row">
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            LEARN MORE
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-list>
+          <mat-list-item *ngFor="let link of learnMoreLinks">
+            <a routerLink="{{link.path}}">{{link.name}}</a>
+          </mat-list-item>
+        </mat-list>
+
+      </mat-expansion-panel>
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            CONTACT & SUPPORT
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-list>
+          <mat-list-item *ngFor="let link of learnMoreLinks">
+            <a routerLink="{{link.path}}">{{link.name}}</a>
+          </mat-list-item>
+        </mat-list>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
+  <div class="site-sidenav-row site-sidenav-row-bottom">
+    <mat-list>
+      <mat-list-item>
+        <a href="">United States - English</a>
+      </mat-list-item>
+    </mat-list>
+  </div>
+
+</div>

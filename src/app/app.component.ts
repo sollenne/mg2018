@@ -16,7 +16,7 @@ export class AppComponent implements AfterViewInit {
     private variantService: VariantService,
     private sidenavService: SidenavService,
   ) {
-    this.setAppVariant('cpp');
+    this.setAppVariant('mg');
   }
 
   public setAppVariant(variant?: string): void {

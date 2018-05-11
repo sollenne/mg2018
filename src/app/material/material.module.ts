@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MATERIAL_SANITY_CHECKS } from '@angular/material';
+import {MATERIAL_SANITY_CHECKS, MatExpansionModule, MatListModule} from '@angular/material';
 
 // Material modules
 import { MatButtonModule } from '@angular/material/button';
@@ -17,6 +17,8 @@ const materialModules = [
   MatInputModule,
   MatSelectModule,
   MatMenuModule,
+  MatListModule,
+  MatExpansionModule,
 ];
 
 @NgModule({
